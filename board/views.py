@@ -40,7 +40,10 @@ class BoardView(View):
 
     def get(self, request, *args, **kwargs):
         uniqueCode = kwargs['uniqueCode']
-        board = WeatherBoard.objects.get(pk=uniqueCode)
+        try:
+            board = WeatherBoard.objects.get(pk=uniqueCode)
+        except:
+            return redirect('home')
         cities = City.objects.filter(city_board=board)
         weather_information = []
         for city in cities:
