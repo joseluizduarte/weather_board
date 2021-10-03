@@ -1,0 +1,50 @@
+{% extends 'board/base.html' %}
+{% load static %}
+
+{% block main %}
+    <!-- board section start -->
+    <div id="taxis" class="taxis_section layout_padding">
+        <div class="container">
+            <div class="taxis_section_2">
+                <div class="row">
+                    <!-- city card start -->
+                    {% for city in weather_information %}
+                        <div class="col-sm-4 mb-5">
+                            <div class="taxi_main">
+                                <div class="round_1"><img src="http://openweathermap.org/img/wn/{{ city.icon }}@2x.png"></div>
+                                <h2 class="carol_text">{{ city.name }}</h2>
+                                <h2 class="carol_text">{{ city.temperature }} ºC</h2>
+                                <p class="reader_text">{{ city.description }}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    <!-- city card end -->
+                    <!-- add city card start -->
+                    <div class="col-sm-4 mb-5">
+                        <div class="taxi_main">
+                            <h2 class="carol_text mt-5">Add new city</h2>
+                            <div class="container">
+                                <form action="{% url 'board' uniqueCode %}" method="POST" id="form_add_city">
+                                    {% csrf_token %}
+                                    <div class="form-group mt-2">
+                                        <input type="text" class="email-bt" placeholder="City" id="input_add_city" name="city">
+                                    </div>
+                                </form>
+                            </div> 
+                            <button class="send_bt" form="form_add_city">Add city</button>
+                        </div>
+                    </div>
+                    <!-- add city card end -->
+                </div>
+                <!-- link board start -->
+                <div class="row mt-3">
+                    <div class="col">
+                        <span class="fb_text">Your board link: <a href="{% url 'board' uniqueCode %}">www.url.com/{{ uniqueCode }}</a></span>
+                    </div>
+                </div>
+                <!-- link board end -->
+            </div>
+        </div>
+    </div>
+    <!-- board section end -->
+{% endblock main %}
