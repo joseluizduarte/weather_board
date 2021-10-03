@@ -1,0 +1,77 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- basic -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- mobile metas -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+        <!-- site metas -->
+        <title>Weather Board</title>
+        <!-- bootstrap css -->
+        <link rel="stylesheet" type="text/css" href="{% static 'board/css/bootstrap.min.css' %}">
+        <!-- style css -->
+        <link rel="stylesheet" type="text/css" href="{% static 'board/css/style.css' %}">
+        <!-- fevicon -->
+        <link rel="icon" href="images/fevicon.png" type="image/gif" />
+        <!-- Tweaks for older IEs-->
+        <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    </head>
+    <body>
+        <!--header section start -->
+        <header>
+            <div id="index.html" class="header_section">
+                <div class="container">
+                <div class="row">
+                    <div>
+                        <div class="logo"><a href="{% url 'home' %}"><h1 class="logo_text">Weather <span style="color: #f4db31;">Board</span></h1></a></div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </header>
+        <!-- header section end -->
+        <main>
+            {% block main %}
+            {% endblock main %}
+        </main>
+        <footer>
+            <!-- section footer start -->
+            <div class="section_footer ">
+                <div class="container"> 
+                    <div class="footer_section_2">
+                        <div class="row">
+                            <div class="col-sm-6 col-md-6 col-lg-4">
+                                <h2 class="account_text">The Project</h2>
+                                <p class="ipsum_text">Weather Board is a app developed in Django fremework. It uses OpenWeather API and its frontend was inspired in ULOAX Free CSS Template. More information at GitHub. </p>
+                            </div>
+                            <div class="col-sm-6 col-md-6 col-lg-4">
+                                <h2 class="account_text">About Me</h2>
+                                <p class="ipsum_text">I am Jose Luiz Duarte Jr, a back-end python developer.</p>
+                            </div>
+                            <div class="col-sm-6 col-md-6 col-lg-4">
+                                <h2 class="account_text">Follow Me</h2>
+                                <div class="image-icon" ><img src="{% static 'board/images/in-icon.png' %}"><span class="fb_text"><a href="https://www.linkedin.com/in/joseluizduarte/">Linkedin</a></span></div>
+                                <div class="image-icon" ><img src="{% static 'board/images/github-icon.png' %}" style="width: 23px;"><span class="fb_text"><a href="https://github.com/joseluizduarte">GitHub</a></span></div>
+                                <div class="image-icon"><img src="{% static 'board/images/youtube-icon.png' %}"><span class="fb_text"><a href="#">Youtube</a></span></div>            
+                                <div class="image-icon"><img src="{% static 'board/images/instagram-icon.png' %}"><span class="fb_text"><a href="#">Instagram</a></span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- section footer end -->
+            <!-- copyright section start -->
+            <div class="copyright_section">
+                <div class="container">
+                    <p class="copyright">2019 All Rights Reserved. <a href="https://html.design">Free html  Templates</a></p>
+                </div>
+            </div>
+            <!-- copyright section end -->
+        </footer> 
+    </body>
+</html>
